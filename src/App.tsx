@@ -192,17 +192,35 @@ export default function App() {
             </button>
           )}
 
-          <div>
-            <h1 style={{ margin: 0, fontSize: '20px', fontWeight: 800, letterSpacing: '-0.5px' }}>
-              ♠ Call Break
-            </h1>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <span style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Score Calculator</span>
-              {gameState.phase !== 'setup' && (
-                <span className="autosave-tag">
-                  <CheckCircle2 size={11} /> Saved
-                </span>
-              )}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <img
+              src="/logo.png"
+              alt="Logo"
+              style={{
+                width: '36px',
+                height: '36px',
+                borderRadius: '8px',
+                objectFit: 'cover',
+                border: '1px solid var(--accent-gold)',
+                boxShadow: '0 2px 8px var(--gold-glow)',
+              }}
+              onError={(e) => {
+                // If image fails to load, hide it gracefully
+                (e.target as HTMLElement).style.display = 'none';
+              }}
+            />
+            <div>
+              <h1 style={{ margin: 0, fontSize: '19px', fontWeight: 800, letterSpacing: '-0.5px' }}>
+                Call Break
+              </h1>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Score Calculator</span>
+                {gameState.phase !== 'setup' && (
+                  <span className="autosave-tag">
+                    <CheckCircle2 size={11} /> Saved
+                  </span>
+                )}
+              </div>
             </div>
           </div>
         </div>
